@@ -1,0 +1,248 @@
+/* footer */
+.footer {    
+    position: relative;
+    background-color: $bgBlack;
+    color: $bgGold;
+    &::before,
+    &::after {
+        content: '';
+        position: absolute;
+        height: 100%;
+        width: toRem(174);
+
+        @media(max-width: em(1640)) {
+            opacity: 0.1;
+        }
+    }
+
+    &::before {
+        content: '';
+        left: 0;
+        bottom: 0;
+        background: url(../img/footer/object.svg) left bottom / 100% no-repeat;
+        pointer-events: none;
+    }
+
+    &::after {
+        content: '';
+        top: 0;
+        right: 0;
+        transform: rotate(-180deg);
+        background: url(../img/footer/object.svg) left bottom / 100% no-repeat;
+        pointer-events: none;
+    }
+    
+    &__container {
+        max-width: toRem(1572);
+        padding-left: toRem(15);
+        padding-right: toRem(15);
+        margin: 0 auto;
+        }
+
+    &__body {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            @include adaptiveValue("padding-top", 92, 30, 1);
+            @include adaptiveValue("padding-bottom", 45, 30, 1);
+
+            @media(max-width: $tablet) {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            @media(max-width: $phone) {
+                grid-template-columns: auto;
+            }
+        }
+
+    &__content {
+        position: relative;
+        
+        @include adaptiveValue("padding-right", 40, 15, 1);
+        @media(max-width: $tablet) {
+            order: 2;
+        }
+
+        @media(min-width: $tablet){
+            border-right: toRem(1) solid $bgGold;
+        }
+
+        @media(max-width: $phone) {
+            order: 3;
+        }
+    }
+
+    &__menu {
+        &:not(:last-child) {
+            @include adaptiveValue("margin-bottom", 40, 20, 1);
+        }
+    }
+    
+    &__logo {
+        justify-self: center;
+        align-self: center;
+        @include adaptiveValue("width", 287, 80, 1);
+        min-width: toRem(220);
+
+        @media(max-width: $tablet) {
+                order: 1;
+                grid-column: span 2;
+                &:not(:last-child) {
+                    @include adaptiveValue("margin-bottom", 40, 20, 1);
+                }
+            }
+
+        @media(max-width: $phone) {
+            grid-column: span 1;
+        }
+    }
+
+    &__suabscribe {        
+
+        @media(max-width: $tablet) {
+                order: 3;                
+            }
+
+        @media(max-width: $phone) {
+            order: 2;            
+            @include adaptiveValue("margin-bottom", 40, 20, 1);            
+        }
+    }
+
+    &__copy {
+        @include adaptiveValue("padding-top", 42, 15, 1);
+        @include adaptiveValue("padding-bottom", 42, 15, 1);
+        text-align: center;
+        line-height: 120%;
+        border-top: toRem(1) solid $bgGold;
+    }
+}
+
+.menu-footer {
+
+
+    &__title {
+        font-family: "Italiana";
+        font-size: toRem(20);
+        text-transform: capitalize;
+        &:not(:last-child) {
+            margin-bottom: toRem(15);
+        }
+    }
+
+    &__list {
+        display: flex;
+        flex-wrap: wrap;
+        row-gap: toRem(3);
+        @include adaptiveValue("column-gap", 42, 15, 1);
+    }
+
+    &__link {
+        color: $bgGold;
+        font-weight: 300;
+        line-height: 156%;
+        display: inline-block;
+        transition: all 0.3s;
+        &:hover {
+            cursor: pointer;            
+            color: $hoverGoldColor;
+        }
+    }
+}
+
+.social {
+    
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: toRem(3);
+    @include adaptiveValue("column-gap", 41, 15, 1);
+
+    @media(max-width: $sphone) {
+        justify-content: space-around;
+    }
+
+    &__item {
+        color: $bgGold;
+        font-size: toRem(24);
+        transition: all 0.3s;
+
+        &:hover {
+            color: $hoverGoldColor;
+        }
+    }
+}
+
+.suabscribe {
+    
+    @include adaptiveValue("padding-left", 40, 8, 1);
+
+    @media(min-width: $phone) {
+        border-left: toRem(1) solid $bgGold;
+        display: grid;
+        justify-items: end;
+    }
+
+    &__body {
+        @media(min-width: $phone) {
+            max-width: toRem(350)
+        }      
+    }
+
+    &__title {
+        font-family: "Italiana";
+        @include adaptiveValue("font-size", 32, 24, 1);
+        text-transform: capitalize;
+        line-height: 120%;
+
+        &:not(:last-child) {
+            margin-bottom: toRem(25);
+        }
+    }
+
+    &__form {
+        display: flex;
+        height: toRem(40);
+        border-bottom: toRem(1) solid rgba(193, 170, 129, 0.2);
+        line-height: 120%;
+
+        @media (max-width: $phone) {
+            flex-wrap: wrap;
+            gap: toRem(10);
+        }
+               
+    }
+
+    &__input {
+        flex: 1 1 auto;
+        color: $bgGold;
+        max-width: toRem(350);
+        background-color: transparent;
+        padding-left: toRem(10);
+        padding-right: toRem(10);
+        line-height: 120%;
+        font-size: toRem(16);
+        outline-color: $bgGold;
+
+        @media (max-width: $phone) {
+            text-align: center;
+        }
+    }
+
+    &__button {        
+        width: toRem(98);
+        color: $bgGold;
+        background-color: transparent;
+        line-height: 120%;
+        font-size: toRem(16);
+        transition: all 0.3s;
+
+        @media (max-width: $phone){
+            margin: 0 auto;
+        }
+
+        &:hover {
+            cursor: pointer;
+            color: $hoverGoldColor;
+        }
+    }
+}
+

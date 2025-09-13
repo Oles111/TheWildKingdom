@@ -1,0 +1,72 @@
+//services
+
+.services {
+    background-color: $bgBlack;
+    @include adaptiveValue("padding-top", 85, 30, 1);
+    @include adaptiveValue("padding-bottom", 160, 30, 1);
+    position: relative;
+    &::before {
+        content: "";
+        background: url("../img/services/bg.svg") top right / 95% no-repeat;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        @media (max-width: $mdesktop) {
+        opacity: 40%;
+        }
+
+    }
+
+         @media (min-width: $tablet) {
+        
+            &::after {
+            content: "";
+            position: absolute;
+            width: 41.510417%; /* 797/1920 */
+            height: 100%;
+            top: 0;
+            left: 0;
+            background-color: $bgGold;
+        }
+    }
+
+    &__container {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        align-items: flex-start;
+        grid-template-columns: repeat(2, 1fr);
+
+        @media (max-width: $tablet) {
+            flex-direction: column-reverse;
+            gap: toRem(30);
+        }
+    }
+
+    &__image {
+        flex: 0 1 50%;
+        padding: toRem(15);
+        border: 1px solid #fff;
+        margin: toRem(-15);
+        img {
+            max-width: 100%;
+        }
+                @media (max-width: $tablet) {
+                    align-self: center;
+                    margin: toRem(0);
+                }
+    }
+
+    &__block-header {
+        flex: 0 1 50%;
+        //max-width: toRem(460);
+        align-self: center;
+        @include adaptiveValue ("margin-left", 168, 50, 1);
+    
+        @media (min-width: $tablet) {
+            max-width: toRem(460);
+        }
+    }
+}

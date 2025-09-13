@@ -1,0 +1,79 @@
+// buttons
+.button {
+    display: inline-block;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    font-weight: 300;
+    line-height: 156%;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    border: toRem(1) solid $bgGold;
+    border-radius: toRem(50);
+    padding: toRem(10) toRem(40);
+    transition: all 0.3s ease 0s;
+    color: $mainTextColor;
+
+    &::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            transition: opacity 0.3s;
+            opacity: 0.5;
+            background: url(../img/btn/bg-btn.jpg) center / cover no-repeat;
+        }
+
+    &--border {
+        transition: all 0.3s;
+        background-color: transparent;
+        border: toRem(1) solid $bgGold;
+        color: $bgGold;
+
+        &::before {
+            opacity: 0;
+        }
+    }
+    
+    
+span {
+    position: relative;
+    //color: $mainTextColor;
+}
+
+@media (any-hover: hover) {
+    &:hover {
+            color: $mainTextColor;
+            border: toRem(1) solid transparent;
+    
+            &::before {
+                opacity: 1;
+                
+            }
+        }
+}
+    
+}
+
+
+
+// .button:hover {
+//     color: $mainTextColor;
+//     border: toRem(1) solid transparent;
+    
+//     &::before {
+//         opacity: 1;
+//     }
+// }
+
+   
+
+
+
+
+
+
+

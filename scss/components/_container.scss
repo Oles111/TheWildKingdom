@@ -1,0 +1,7 @@
+/* селектор атрибута контейнер */
+[class*="__container"] {
+    max-width: toRem(1572);
+    padding-left: toRem(15);
+    padding-right: toRem(15);
+    margin: 0 auto;
+}

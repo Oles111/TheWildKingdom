@@ -1,0 +1,101 @@
+.about-us {
+
+    background-color: $BgColor;
+
+    &__container {        
+        @include adaptiveValue("padding-top", 190, 30, 1);
+        @include adaptiveValue("padding-bottom", 80, 30, 1);
+    }
+
+    &__body {
+        // display: grid;
+        display: flex;
+        @include adaptiveValue("gap", 134, 30, 1);
+        // grid-template-columns: 51.25% 1fr; //820/1600
+        align-items: center;
+        &:not(:last-child) {
+            @include adaptiveValue("margin-bottom", 98, 20, 1);
+        }
+
+        @media (max-width: $tablet) {
+            flex-direction: column-reverse;
+        }
+    }
+
+    &__image {
+        outline: 1px solid $goldColor;
+        padding: 15px;
+        img {
+            max-width: 100%;
+        }
+    }
+
+    &__content {
+        flex: 1 1 auto;
+    }
+}
+
+.services-about-us {
+    display: flex;
+    // display: grid;
+    // grid-template-columns: repeat(3, auto);
+    justify-content: space-between;
+    gap: toRem(30);
+    max-width: toRem(1024);
+    margin: 0 auto;
+    flex-wrap: wrap;
+    text-align: center;
+    @media (max-width: em(610)){
+        justify-content: center;
+    }
+    
+
+    &__item {
+        display: grid;        
+        justify-items: center;
+        gap: toRem(30);
+    }
+
+    &__icon {
+        // background: url("../img/about-us/icons/bg-icon2.jpg") center / cover no-repeat;
+        border-radius: 50%;
+        overflow: hidden;
+        width: toRem(140);
+        height: toRem(140);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        justify-self: center;
+        position: relative;
+        padding: toRem(20);
+        &::before {
+                content: '';
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+                transition: opacity 0.3s;
+                opacity: 0.5;
+                background: url("../img/about-us/icons/bg-icon2.jpg") center / cover no-repeat;
+            }
+
+            img {
+                position: relative;
+                max-width: 100%;
+            }
+
+            @media (max-width: em(610)) {
+                width: toRem(80);
+                height: toRem(80);
+            }
+    }
+
+    &__label {
+        font-family: "Italiana";
+        font-weight: 400;
+        font-size: toRem(24);
+        text-transform: capitalize;
+    }
+}
+
